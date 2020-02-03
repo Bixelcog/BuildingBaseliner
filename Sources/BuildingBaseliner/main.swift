@@ -18,4 +18,4 @@ struct BuildingBaseliner: Website {
     var imagePath: Path? { nil }
 }
 
-try BuildingBaseliner().publish(withTheme: .foundation)
+try BuildingBaseliner().publish(withTheme: .buildingBaseliner)
