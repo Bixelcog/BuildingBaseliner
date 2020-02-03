@@ -4,7 +4,7 @@ import Plot
 
 struct BuildingBaseliner: Website {
     enum SectionID: String, WebsiteSectionID {
-        case posts
+        case logs
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
