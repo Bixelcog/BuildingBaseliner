@@ -1,0 +1,12 @@
+name = "building-baseliner"
+type = "webpack"
+account_id = "c876ab80db5a93fd1f16b1619170bb13"
+workers_dev = true
+
+[site]
+bucket = "../Output"
+entry-point = "workers-site"
+
+[env.production]
+zone_id = "21b08ccc6a5895182d902a20d2de01c4"
+route = "baseliner.dev/*"
