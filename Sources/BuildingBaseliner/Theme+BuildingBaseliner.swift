@@ -195,11 +195,11 @@ private extension Node where Context == HTML.BodyContext {
                     .text(item.title)
                 )
             ),
-            .tagList(for: item, on: site),
             .div(
                 .class("content"),
                 .contentBody(item.body)
             ),
+            .tagList(for: item, on: site),
             .div(
                 .class("item-end"),
                 .text("⚾︎")

@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #fff;
+    background: #FFF;
     color: #000;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial;
     text-align: center;
@@ -23,6 +23,7 @@ body {
 }
 
 header {
+    color: #ddd;
     background-color: #FF8622;
 }
 
@@ -114,9 +115,11 @@ ul > li:last-child {
 .tag-list li,
 .tag {
     display: inline-block;
-    background-color: #000;
+    border-color: #FF8622;
+    border-width: 1px;
+    border-style: solid;
     color: #ddd;
-    padding: 4px 6px;
+    padding: 6px 6px;
     border-radius: 5px;
     margin-right: 5px;
 }
@@ -142,7 +145,7 @@ ul > li:last-child {
 .all-tags li {
     font-size: 1.4em;
     margin-right: 10px;
-    padding: 6px 10px;
+    padding: 10px 10px;
 }
 
 footer {
@@ -151,7 +154,7 @@ footer {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #222;
+        background-color: #4D4D4D;
     }
 
     body {
