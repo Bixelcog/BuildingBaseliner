@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build
-      run: swift build
+      run: swift run
     - uses: actions/upload-artifact@v1
       with:
         name: BuildingBaselinerDevelopment
