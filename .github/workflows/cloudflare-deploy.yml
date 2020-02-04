@@ -4,14 +4,25 @@ on:
     branches:
     - master
 jobs:
-  deploy:
-    name: Build and deploy site to Cloudflare
+  build:
+    name: Build site
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
     - name: Build
       run: swift build
-    - name: Publish
+    - uses: actions/upload-artifact@v1
+      with:
+        name: BuildingBaseliner
+        path: Output
+  deploy:
+    name: Deploy to Cloudflare
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: BuildingBaseliner
+      - name: Publish
       uses: cloudflare/wrangler-action@1.1.0
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
