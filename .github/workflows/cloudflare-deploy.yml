@@ -23,8 +23,8 @@ jobs:
         with:
           name: BuildingBaseliner
       - name: Publish
-      uses: cloudflare/wrangler-action@1.1.0
-      with:
-        apiToken: ${{ secrets.CF_API_TOKEN }}
-        workingDirectory: Cloudflare
-        environment: production
+        uses: cloudflare/wrangler-action@1.1.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: Cloudflare
+          environment: production
