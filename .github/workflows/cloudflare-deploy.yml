@@ -1,0 +1,19 @@
+name: Deploy to Cloudflare
+on:
+  push:
+    branches:
+    - master
+jobs:
+  deploy:
+    name: Build and deploy site to Cloudflare
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build
+      run: swift build
+    - name: Publish
+      uses: uses: cloudflare/wrangler-action@1.1.0
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+        workingDirectory: Cloudflare
+        environment: production
