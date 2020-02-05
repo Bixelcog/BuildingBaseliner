@@ -11,7 +11,7 @@ I will develop Baseliner in the open on [GitHub](https://github.com/Bixelcog/Bas
 Baseliner will adhere to a set of technical restrictions to help make the project applicable to the widest audience.
 
 - **Modern**: Baseliner requires iOS 13.
-- **No third-party code dependencies**: Baseliner will only use code I write and Apple's SDK.
+- **No third-party code dependencies**: Baseliner will only use code I write and code from Apple's SDKs.
 - **SwiftUI**: Baseliner will use SwiftUI when possible.
 - **Testing**: Baseliner will include automated tests. 
 
