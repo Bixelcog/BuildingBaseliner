@@ -28,7 +28,7 @@ private struct BuildingBaselinerHTMLFactory<Site: Website>: HTMLFactory {
                             sortedBy: \.date,
                             order: .descending
                         ),
-                        on: context.site
+                        context: context
                     )
                 ),
                 .footer(for: context.site)
@@ -45,7 +45,7 @@ private struct BuildingBaselinerHTMLFactory<Site: Website>: HTMLFactory {
                 .header(for: context, selectedSection: section.id),
                 .wrapper(
                     .h1(.text(section.title)),
-                    .itemList(for: section.items, on: context.site)
+                    .itemList(for: section.items, context: context)
                 ),
                 .footer(for: context.site)
             )
@@ -60,7 +60,7 @@ private struct BuildingBaselinerHTMLFactory<Site: Website>: HTMLFactory {
             .body(
                 .header(for: context, selectedSection: item.sectionID),
                 .wrapper(
-                    .post(for: item, on: context.site)
+                    .post(for: item, context: context)
                 ),
                 .footer(for: context.site)
             )
@@ -130,7 +130,7 @@ private struct BuildingBaselinerHTMLFactory<Site: Website>: HTMLFactory {
                             sortedBy: \.date,
                             order: .descending
                         ),
-                        on: context.site
+                        context: context
                     )
                 ),
                 .footer(for: context.site)
@@ -178,16 +178,18 @@ private extension Node where Context == HTML.BodyContext {
         )
     }
 
-    static func itemList<T: Website>(for items: [Item<T>], on site: T) -> Node {
+    static func itemList<T: Website>(for items: [Item<T>],
+                                     context: PublishingContext<T>) -> Node {
         return .div(
             .class("item-list"),
             .forEach(items) { item in
-                post(for: item, on: site)
+                post(for: item, context: context)
             }
         )
     }
 
-    static func post<T: Website>(for item: Item<T>, on site: T) -> Node {
+    static func post<T: Website>(for item: Item<T>,
+                                 context: PublishingContext<T>) -> Node {
         return .article(
             h1(
                 .a(
@@ -197,9 +199,13 @@ private extension Node where Context == HTML.BodyContext {
             ),
             .div(
                 .class("content"),
+                .p(
+                    .class("content-date"),
+                    .text(context.dateFormatter.string(from: item.date))
+                ),
                 .contentBody(item.body)
             ),
-            .tagList(for: item, on: site),
+            .tagList(for: item, on: context.site),
             .div(
                 .class("item-end"),
                 .text("⚾︎")

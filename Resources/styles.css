@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    color: #ddd;
+    color: #FFF;
     background-color: #FF8622;
 }
 
@@ -137,6 +137,10 @@ ul > li:last-child {
     margin-bottom: 40px;
 }
 
+.content-date {
+    color: #8a8a8a;
+}
+
 .browse-all {
     display: block;
     margin-bottom: 30px;
@@ -155,10 +159,11 @@ footer {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #4D4D4D;
+        color: #ddd;
     }
 
-    body {
-        color: #ddd;
+    header {
+        color: #DDD;
     }
 }
 
