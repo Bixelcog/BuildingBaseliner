@@ -25,8 +25,6 @@ jobs:
         with:
           name: BuildingBaselinerDevelopment
           path: Output
-      - name: Debug
-        run: ls -a
       - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
         with:
